@@ -1,0 +1,41 @@
+@import url(./variables.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--clr-bg);
+    position: relative;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.side_pattern, .container {
+    height: inherit;
+}
+
+.side_pattern {
+    width: 10%;
+    background: url('../img/pattern.svg') right repeat-y;
+}
+
+.rotated {
+    transform: rotateY(180deg);
+}
+
+.container {
+    width: 80%;
+    background-color: var(--clr-white);
+}

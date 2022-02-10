@@ -1,0 +1,65 @@
+main {
+  background-color: #000;
+  z-index: -1;
+  overflow: hidden;
+}
+
+main .container {
+  background-color: transparent;
+  position: relative;
+  color: var(--clr-white);
+  padding: 100px 0;
+}
+
+main .container .menu {
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 700px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+main .container .menu .type {
+  min-width: 500px;
+  max-width: 500px;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 20px;
+  text-align: left;
+}
+
+main .container .menu .type tr > th:first-child {
+  width: 100%;
+}
+
+main .container .menu .type th {
+  color: #e04e4b;
+  font-size: 1.3rem;
+}
+
+main .container .menu .type td:not(:first-child),
+main .container .menu .type th:not(:first-child) {
+  padding-right: 25px;
+  width: 71px !important;
+}
+
+.bttm_overlay {
+  bottom: -150%;
+  left: -14%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  background: radial-gradient(circle, #b61500 0%, rgba(0, 0, 0, 0) 70%);
+  width: 100vw;
+  aspect-ratio: 1.0;
+  z-index: -1;
+}
+/*# sourceMappingURL=style.css.map */
