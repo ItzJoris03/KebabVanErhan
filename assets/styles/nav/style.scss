@@ -1,0 +1,65 @@
+@import url(../variables.css);
+
+:root {
+    --navbar-height: 80px;
+}
+
+nav {
+    width: 100%;
+    padding: 10px 0;
+    height: fit-content;
+    background-color: var(--clr-white);
+    ul {
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        li {
+            list-style: none;
+            &.menu {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--clr-text);
+                display: inline-block;
+
+                &.active,
+                &:hover:not(.logo) {
+                    color: var(--clr-red);
+                    &:after {
+                        transform: scaleX(1); 
+                    }
+                }
+                &::after {
+                    display: block;
+                    content: '';
+                    border-bottom: solid 3px var(--clr-red);  
+                    transform: scaleX(0);  
+                    transition: transform 250ms ease-in-out;
+                    transform-origin:  0% 50%;
+                }
+
+                &.disabled {
+                    color: var(--clr-text) !important;
+                    &.active,
+                    &:hover {
+                        color: var(--clr-text) !important;
+                    }
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            img {
+                height: var(--navbar-height);
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import url(../variables.css);
+:root {
+  --navbar-height: 80px;
+}
+
+nav {
+  width: 100%;
+  padding: 10px 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--clr-white);
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 70%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li.menu {
+  display: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--clr-text);
+  display: inline-block;
+}
+
+nav ul li a.active, nav ul li a:hover:not(.logo) {
+  color: var(--clr-red);
+}
+
+nav ul li a.active:after, nav ul li a:hover:not(.logo):after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+nav ul li a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px var(--clr-red);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+nav ul li a.disabled {
+  color: var(--clr-text) !important;
+}
+
+nav ul li a.disabled.active, nav ul li a.disabled:hover {
+  color: var(--clr-text) !important;
+}
+
+nav ul li a.disabled::after {
+  display: none;
+}
+
+nav ul li img {
+  height: var(--navbar-height);
+}
+/*# sourceMappingURL=style.css.map */

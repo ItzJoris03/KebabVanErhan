@@ -1,0 +1,51 @@
+main {
+    background-color: #000;
+    z-index: -1;
+    overflow: hidden;
+    .container {
+        background-color: transparent;
+        position: relative;
+        color: var(--clr-white);
+        padding: 100px 0;
+        .menu {
+            z-index: 2;
+            display: flex;
+            max-height: 700px;
+            flex-flow: column wrap;
+            .type {
+                // flex: 1 auto;
+                min-width: 500px;
+                max-width: 500px;
+                width: fit-content !important;
+                height: fit-content;
+                margin-top: 20px;
+                text-align: left;
+                tr > th:first-child {
+                    width: 100%;
+                }
+                th {
+                    color: #e04e4b;
+                    font-size: 1.3rem;
+                }
+                td:not(:first-child),
+                th:not(:first-child) {
+                    padding-right: 25px;
+                    width: 71px !important;
+                }
+            }
+            
+        }
+    }
+}
+
+.bttm_overlay{
+    bottom: -150%;
+    left: -14%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    background: radial-gradient(circle, rgb(182, 21, 0) 0%, rgba(0,0,0,0) 70%);
+    width: 100vw;
+    aspect-ratio: 1.0;
+    z-index: -1;
+}
