@@ -111,3 +111,29 @@ footer {
         }
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    footer {
+        nav,
+        .next_location {
+            display: none !important;
+        }
+        img.logo {
+            min-width: 140px;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    footer {
+        img.logo {
+            min-width: 120px;
+        }
+        & > * {
+            font-size: .8rem !important;
+        }
+        .copyright p {
+            font-size: .6rem !important;
+        }
+    }
+}

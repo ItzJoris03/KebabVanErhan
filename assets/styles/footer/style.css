@@ -186,4 +186,26 @@ footer .footer_container .copyright a.login {
 footer .footer_container .copyright a.login img {
   width: 80%;
 }
+
+@media only screen and (max-width: 1000px) {
+  footer nav,
+  footer .next_location {
+    display: none !important;
+  }
+  footer img.logo {
+    min-width: 140px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  footer img.logo {
+    min-width: 120px;
+  }
+  footer > * {
+    font-size: .8rem !important;
+  }
+  footer .copyright p {
+    font-size: .6rem !important;
+  }
+}
 /*# sourceMappingURL=style.css.map */

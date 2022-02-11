@@ -35,7 +35,7 @@ if($locations) {
 <footer>
     <div class="footer_container">
         <div class="information">
-    	    <img src="<?=$dir?>/assets/img/logo.jpg" alt="Logo Kebab van Erhan">
+    	    <img class="logo" src="<?=$dir?>/assets/img/logo.jpg" alt="Logo Kebab van Erhan">
             <div class="next_location">
                 <?php
                 if ($open) {
