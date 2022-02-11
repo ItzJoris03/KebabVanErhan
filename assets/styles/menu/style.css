@@ -4,11 +4,19 @@ main {
   overflow: hidden;
 }
 
+main .side_pattern {
+  display: none;
+}
+
 main .container {
   background-color: transparent;
   position: relative;
   color: var(--clr-white);
   padding: 100px 0;
+  margin: 0 auto;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 
 main .container .menu {
@@ -21,14 +29,17 @@ main .container .menu {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  overflow: hidden;
+  -webkit-column-gap: 50px;
+          column-gap: 50px;
 }
 
 main .container .menu .type {
-  min-width: 500px;
   max-width: 500px;
-  width: -webkit-fit-content !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -61,5 +72,51 @@ main .container .menu .type th:not(:first-child) {
   width: 100vw;
   aspect-ratio: 1.0;
   z-index: -1;
+}
+
+@media only screen and (max-width: 1300px) {
+  .menu {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-flow: column !important;
+            flex-flow: column !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    max-height: -webkit-fit-content !important;
+    max-height: -moz-fit-content !important;
+    max-height: fit-content !important;
+  }
+  .bttm_overlay {
+    bottom: -60%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .bttm_overlay {
+    bottom: -50%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .bttm_overlay {
+    bottom: -40%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  main .menu > * {
+    font-size: smaller !important;
+  }
+  main .bttm_overlay {
+    bottom: -35%;
+    left: -10%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .bttm_overlay {
+    bottom: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

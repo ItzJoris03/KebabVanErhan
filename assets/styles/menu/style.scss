@@ -2,21 +2,28 @@ main {
     background-color: #000;
     z-index: -1;
     overflow: hidden;
+    .side_pattern {
+        display: none;
+    }
     .container {
         background-color: transparent;
         position: relative;
         color: var(--clr-white);
         padding: 100px 0;
+        margin: 0 auto;
+        min-width: fit-content;
         .menu {
             z-index: 2;
             display: flex;
             max-height: 700px;
             flex-flow: column wrap;
+            min-width: fit-content;
+            overflow: hidden;
+            column-gap: 50px;
             .type {
-                // flex: 1 auto;
-                min-width: 500px;
+                // min-width: 500px;
                 max-width: 500px;
-                width: fit-content !important;
+                width: 100%;
                 height: fit-content;
                 margin-top: 20px;
                 text-align: left;
@@ -48,4 +55,45 @@ main {
     width: 100vw;
     aspect-ratio: 1.0;
     z-index: -1;
+}
+
+@media only screen and (max-width: 1300px) {
+    .menu {
+        flex-flow: column !important;
+        align-items: center;
+        max-height: fit-content !important;
+    }
+    .bttm_overlay {
+        bottom: -60%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .bttm_overlay {
+        bottom: -50%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .bttm_overlay {
+        bottom: -40%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        .menu > * {
+            font-size: smaller !important;
+        }
+        .bttm_overlay {
+            bottom: -35%;
+            left: -10%;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .bttm_overlay {
+        bottom: 0;
+    }
 }
