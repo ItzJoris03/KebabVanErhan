@@ -82,6 +82,7 @@ main {
 
 @media only screen and (max-width: 600px) {
     main {
+        padding: 0 20px;
         .menu > * {
             font-size: smaller !important;
         }
