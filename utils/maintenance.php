@@ -1,35 +1,35 @@
 <?php
 
 class Maintenance {
-    private bool $state = true;
-    private Date $endMaintenance;
-    public int $NAVBAR = 0;
+    private static bool $state = true;
+    private static Date $endMaintenance;
+    const NAVBAR = 0;
 
     // function __construct(bool $state, Date $endOfMaintenance = null) {
     //     $this->state = $state;
     //     $this->$endMaintenance = $endOfMaintenance;
     // }
 
-    function getState() : bool {
-        return $this->state;
+    public static function getState() : bool {
+        return self::$state;
     }
 
-    function setState(bool $state) : void {
-        $this->state = $state;
+    public static function setState(bool $state) : void {
+        self::$state = $state;
     }
 
-    function getEndOfMaintenance() : Date {
-        return $this->endMaintenance;
+    public static function getEndOfMaintenance() : Date {
+        return self::$endMaintenance;
     }
 
-    function setEndOfMaintenance(Date $endOfMaintenance) : void {
-        $this->endMaintenance = $endOfMaintenance;
+    public static function setEndOfMaintenance(Date $endOfMaintenance) : void {
+        self::$endMaintenance = $endOfMaintenance;
     }
 
-    function checkMaintenance(?int $for = null) : bool | null {
-        if($this->state) {
+    public static function checkMaintenance(?int $for = null) : bool | null {
+        if(self::$state) {
 
-            if(empty($this->endMaintenance) || $this->endMaintenance != Date("now")) {
+            if(empty(self::$endMaintenance) || self::$endMaintenance != Date("now")) {
 
                 switch($for) {
                     case 0:
@@ -40,8 +40,8 @@ class Maintenance {
                         break;
                 }
             } else {
-                $this->state = false;
-                unset($this->endMaintenance);
+                self::$state = false;
+                unset(self::$endMaintenance);
                 return null;
             }
         } else {

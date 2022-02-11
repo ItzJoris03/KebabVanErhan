@@ -4,7 +4,7 @@
 require_once "$dir/utils/check/check_active.php";
 require_once "$dir/utils/maintenance.php";
 
-$state = $m->checkMaintenance($m->NAVBAR);
+$state = $m->checkMaintenance($m::NAVBAR);
 $disabled = ($state) ? "disabled" : "" ;
 
 echo "  <link rel='stylesheet' href='$dir/assets/styles/nav/style.css'>

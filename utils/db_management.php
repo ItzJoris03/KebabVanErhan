@@ -1,25 +1,19 @@
 <?php 
 
 class db extends PDO {
-    private $host = 'localhost';
-    private $pwd = '';
-    private $user = 'root';
-    private $db = 'kebab_van_erhan';
-    private $pdo;
-
-    // private $host = "rdbms.strato.de";
-    // private $user = "dbu208998";
-    // private $pwd = "cbdf44Zr79UTJ8t";
-    // private $db = "dbs4966586";
+    private static $host = 'localhost';
+    private static $pwd = '';
+    private static $user = 'root';
+    private static $db = 'kebab_van_erhan';
 
     function __construct() {
         $this->createConnection();
     }
 
-    function createConnection() : bool {
+    private function createConnection() : bool {
         try {
-            $dsn = "mysql:host=$this->host;dbname=$this->db;charset=UTF8";
-            parent::__construct($dsn, $this->user, $this->pwd);
+            $dsn = "mysql:host=".self::$host.";dbname=".self::$db.";charset=UTF8";
+            parent::__construct($dsn, self::$user, self::$pwd);
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -27,7 +21,7 @@ class db extends PDO {
         }
     }
 
-    function getLocations(?string $day = NULL) : array | false {
+    public function getLocations(?string $day = NULL) : array | false {
         $sql = ($day === NULL) ? "SELECT Day, Place, Name, TimeStart, TimeEnd
                                   FROM location" : 
                                   "SELECT Day, Place, Name, TimeStart, TimeEnd
@@ -41,7 +35,7 @@ class db extends PDO {
         // return $stmt->fetch();
     }
 
-    function getPassword(string $email) : array | false {
+    public function getPassword(string $email) : array | false {
         $sql = "SELECT Password
                 FROM account
                 WHERE Mail = ?";
@@ -49,14 +43,14 @@ class db extends PDO {
         return $this->stmtExecute($sql, $email);
     }
 
-    function getMenuTypes() : array | false {
+    public function getMenuTypes() : array | false {
         $sql = "SELECT Id, Type
                 FROM type";
         
         return $this->stmtExecute($sql);
     }
 
-    function getMenu(int $TypeId) : array | false {
+    public function getMenu(int $TypeId) : array | false {
         $sql = "SELECT Name, PriceRegular, PriceKalf, PriceKip, PriceMix
                 FROM menu
                 WHERE TypeId = ?";
@@ -65,7 +59,7 @@ class db extends PDO {
     }
 
     // array[row][column => value]
-    function stmtExecute(string $sql, mixed ...$bind) : array | false {
+    private function stmtExecute(string $sql, mixed ...$bind) : array | false {
         $stmt = $this->prepare($sql);
         if($stmt) {
             $stmt->execute($bind);
