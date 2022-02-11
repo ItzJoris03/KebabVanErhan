@@ -10,6 +10,7 @@ nav {
   height: -moz-fit-content;
   height: fit-content;
   background-color: var(--clr-white);
+  z-index: 99;
 }
 
 nav > .logo,
@@ -127,37 +128,37 @@ nav ul .navcontent li img {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    outline: none;
     z-index: 99;
   }
   nav > .hamburger > * {
     -webkit-transition: all .8s;
     transition: all .8s;
   }
-  nav > .hamburger:not(.open):hover .line, nav > .hamburger.open .line {
+  nav > .hamburger.open .line {
     height: 4px;
     border-radius: 5rem;
     width: 50px;
     background-color: var(--clr-text);
   }
-  nav > .hamburger:not(.open):hover .line:not(:last-child), nav > .hamburger.open .line:not(:last-child) {
+  nav > .hamburger.open .line:not(:last-child) {
     margin-bottom: 10px;
   }
-  nav > .hamburger:not(.open):hover .line.top, nav > .hamburger.open .line.top {
-    -webkit-transform: translateY(15px) rotate(45deg);
-            transform: translateY(15px) rotate(45deg);
+  nav > .hamburger.open .line.top {
+    -webkit-transform: translateY(14px) rotate(45deg);
+            transform: translateY(14px) rotate(45deg);
   }
-  nav > .hamburger:not(.open):hover .line.bottom, nav > .hamburger.open .line.bottom {
-    -webkit-transform: translateY(-15px) rotate(-45deg);
-            transform: translateY(-15px) rotate(-45deg);
+  nav > .hamburger.open .line.bottom {
+    -webkit-transform: translateY(-14px) rotate(-45deg);
+            transform: translateY(-14px) rotate(-45deg);
   }
-  nav > .hamburger:not(.open):hover .line.middle, nav > .hamburger.open .line.middle {
+  nav > .hamburger.open .line.middle {
     width: 0px;
     opacity: 0;
   }
   nav > .hamburger:hover {
     cursor: pointer;
   }
-  nav > .hamburger.open:hover .line,
   nav > .hamburger:not(.open) .line {
     height: 4px;
     border-radius: 5rem;
@@ -167,12 +168,10 @@ nav ul .navcontent li img {
             transform: unset;
     opacity: unset;
   }
-  nav > .hamburger.open:hover .line.middle,
   nav > .hamburger:not(.open) .line.middle {
     -webkit-transform: translateX(-5px);
             transform: translateX(-5px);
   }
-  nav > .hamburger.open:hover .line:not(:last-child),
   nav > .hamburger:not(.open) .line:not(:last-child) {
     margin-bottom: 10px;
   }
@@ -184,16 +183,26 @@ nav ul .navcontent li img {
   nav ul {
     position: absolute;
     width: 0px;
+    right: 100%;
     height: 0;
-    -webkit-transition: width,height 1s;
-    transition: width,height 1s;
-    overflow: hidden;
+    top: calc(var(--navbar-height) + 20px);
+    -webkit-transition: width,height,right 1s;
+    transition: width,height,right 1s;
   }
   nav ul li a.logo {
     display: none;
   }
+  nav ul .navcontent {
+    display: none;
+    -webkit-transform: skew(0deg, 75deg) translate(80%, 20%);
+            transform: skew(0deg, 75deg) translate(80%, 20%);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: calc(100vh - var(--navbar-height) - 20px);
+  }
   nav .open ~ ul {
-    z-index: -1;
+    z-index: 90;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -202,10 +211,9 @@ nav ul .navcontent li img {
         -ms-flex-direction: column;
             flex-direction: column;
     position: absolute;
-    top: calc(var(--navbar-height) + 20px);
-    right: -10%;
-    height: 200vh;
-    width: 250vw;
+    right: 0;
+    height: 375vw;
+    width: 200vw;
     background-color: var(--clr-menu);
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -217,20 +225,13 @@ nav ul .navcontent li img {
   }
   nav .open ~ ul > .navcontent {
     display: block;
-    -webkit-transform: skew(0deg, 75deg) translate(130%, 20%);
-            transform: skew(0deg, 75deg) translate(130%, 20%);
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: calc(100vh - var(--navbar-height) - 20px);
-    opacity: 1;
   }
   nav .open ~ ul > .navcontent .menu {
     display: block;
   }
   nav .open ~ ul > .navcontent a {
     color: var(--clr-white);
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   nav .open ~ ul > .navcontent a::after {
     display: none;

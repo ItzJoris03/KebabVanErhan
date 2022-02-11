@@ -13,7 +13,6 @@ main {
         margin: 0 auto;
         min-width: fit-content;
         .menu {
-            z-index: 2;
             display: flex;
             max-height: 700px;
             flex-flow: column wrap;
@@ -21,7 +20,6 @@ main {
             overflow: hidden;
             column-gap: 50px;
             .type {
-                // min-width: 500px;
                 max-width: 500px;
                 width: 100%;
                 height: fit-content;
@@ -84,7 +82,7 @@ main {
     main {
         padding: 0 20px;
         .menu > * {
-            font-size: smaller !important;
+            font-size: .8rem;
         }
         .bttm_overlay {
             bottom: -35%;
@@ -96,5 +94,17 @@ main {
 @media only screen and (max-width: 500px) {
     .bttm_overlay {
         bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    main  {
+        .menu > * {
+            font-size: .7rem;
+        }
+    }
+
+    .bttm_overlay {
+        top: 90%;
     }
 }
