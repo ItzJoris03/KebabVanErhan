@@ -13,7 +13,7 @@ nav {
     & > .hamburger {
         display: none;
     }
-    ul {
+    ul .navcontent {
         display: flex;
         flex-direction: row;
         width: 70%;
@@ -50,10 +50,10 @@ nav {
                 }
 
                 &.disabled {
-                    color: var(--clr-text) !important;
+                    color: var(--clr-text);
                     &.active,
                     &:hover {
-                        color: var(--clr-text) !important;
+                        color: var(--clr-text);
                     }
                     &::after {
                         display: none;
@@ -175,6 +175,9 @@ nav {
                     font-size: 2rem;
                     &::after {
                         display: none;
+                    }
+                    &.disabled {
+                        color: var(--clr-white) !important;
                     }
                 }
             }

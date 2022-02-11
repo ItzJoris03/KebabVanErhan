@@ -76,7 +76,7 @@ footer .footer_container .information nav {
   padding: 0;
 }
 
-footer .footer_container .information nav ul {
+footer .footer_container .information nav ul .navcontent {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -92,15 +92,15 @@ footer .footer_container .information nav ul {
           justify-content: space-evenly;
 }
 
-footer .footer_container .information nav ul li.menu {
+footer .footer_container .information nav ul .navcontent li.menu {
   display: block;
 }
 
-footer .footer_container .information nav ul li.logo {
+footer .footer_container .information nav ul .navcontent li.logo {
   display: none;
 }
 
-footer .footer_container .information nav ul li.admin {
+footer .footer_container .information nav ul .navcontent li.admin {
   display: none;
 }
 

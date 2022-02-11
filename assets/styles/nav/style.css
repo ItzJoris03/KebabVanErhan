@@ -17,7 +17,7 @@ nav > .hamburger {
   display: none;
 }
 
-nav ul {
+nav ul .navcontent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,15 +35,15 @@ nav ul {
   margin: 0 auto;
 }
 
-nav ul li {
+nav ul .navcontent li {
   list-style: none;
 }
 
-nav ul li.menu {
+nav ul .navcontent li.menu {
   display: none;
 }
 
-nav ul li a {
+nav ul .navcontent li a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
@@ -51,16 +51,16 @@ nav ul li a {
   display: inline-block;
 }
 
-nav ul li a.active, nav ul li a:hover:not(.logo) {
+nav ul .navcontent li a.active, nav ul .navcontent li a:hover:not(.logo) {
   color: var(--clr-red);
 }
 
-nav ul li a.active:after, nav ul li a:hover:not(.logo):after {
+nav ul .navcontent li a.active:after, nav ul .navcontent li a:hover:not(.logo):after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
 
-nav ul li a::after {
+nav ul .navcontent li a::after {
   display: block;
   content: '';
   border-bottom: solid 3px var(--clr-red);
@@ -74,19 +74,19 @@ nav ul li a::after {
           transform-origin: 0% 50%;
 }
 
-nav ul li a.disabled {
-  color: var(--clr-text) !important;
+nav ul .navcontent li a.disabled {
+  color: var(--clr-text);
 }
 
-nav ul li a.disabled.active, nav ul li a.disabled:hover {
-  color: var(--clr-text) !important;
+nav ul .navcontent li a.disabled.active, nav ul .navcontent li a.disabled:hover {
+  color: var(--clr-text);
 }
 
-nav ul li a.disabled::after {
+nav ul .navcontent li a.disabled::after {
   display: none;
 }
 
-nav ul li img {
+nav ul .navcontent li img {
   height: var(--navbar-height);
 }
 
@@ -233,6 +233,9 @@ nav ul li img {
   }
   nav .open ~ ul > .navcontent a::after {
     display: none;
+  }
+  nav .open ~ ul > .navcontent a.disabled {
+    color: var(--clr-white) !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

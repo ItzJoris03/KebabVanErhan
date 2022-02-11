@@ -43,7 +43,7 @@ footer {
             nav {
                 width: fit-content;
                 padding: 0;
-                ul {
+                ul .navcontent {
                     flex-direction: column;
                     align-items: flex-start;
                     width: fit-content;

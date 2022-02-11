@@ -19,7 +19,7 @@ include "$dir/utils/db_management.php";
 $db = new db;
 
 $m = new Maintenance;
-$m->setState(false);
+$m->setState(true);
 ?>
 
 <!DOCTYPE html>
