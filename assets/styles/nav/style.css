@@ -216,6 +216,7 @@ nav ul .navcontent li img {
             transform: skew(0deg, -75deg) translateZ(-10px);
   }
   nav .open ~ ul > .navcontent {
+    display: block;
     -webkit-transform: skew(0deg, 75deg) translate(130%, 20%);
             transform: skew(0deg, 75deg) translate(130%, 20%);
     width: -webkit-fit-content;
