@@ -102,6 +102,9 @@ nav ul li img {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    position: fixed;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
   }
   nav > .logo {
     display: block;
@@ -124,37 +127,53 @@ nav ul li img {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    z-index: 99;
   }
   nav > .hamburger > * {
     -webkit-transition: all .8s;
     transition: all .8s;
   }
-  nav > .hamburger:hover {
-    cursor: pointer;
-  }
-  nav > .hamburger:hover .line.top {
-    -webkit-transform: translateY(15px) rotate(45deg);
-            transform: translateY(15px) rotate(45deg);
-  }
-  nav > .hamburger:hover .line.bottom {
-    -webkit-transform: translateY(-15px) rotate(-45deg);
-            transform: translateY(-15px) rotate(-45deg);
-  }
-  nav > .hamburger:hover .line.middle {
-    width: 0px;
-    opacity: 0;
-  }
-  nav > .hamburger .line {
+  nav > .hamburger:not(.open):hover .line, nav > .hamburger.open .line {
     height: 4px;
     border-radius: 5rem;
     width: 50px;
     background-color: var(--clr-text);
   }
-  nav > .hamburger .line.middle {
+  nav > .hamburger:not(.open):hover .line:not(:last-child), nav > .hamburger.open .line:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  nav > .hamburger:not(.open):hover .line.top, nav > .hamburger.open .line.top {
+    -webkit-transform: translateY(15px) rotate(45deg);
+            transform: translateY(15px) rotate(45deg);
+  }
+  nav > .hamburger:not(.open):hover .line.bottom, nav > .hamburger.open .line.bottom {
+    -webkit-transform: translateY(-15px) rotate(-45deg);
+            transform: translateY(-15px) rotate(-45deg);
+  }
+  nav > .hamburger:not(.open):hover .line.middle, nav > .hamburger.open .line.middle {
+    width: 0px;
+    opacity: 0;
+  }
+  nav > .hamburger:hover {
+    cursor: pointer;
+  }
+  nav > .hamburger.open:hover .line,
+  nav > .hamburger:not(.open) .line {
+    height: 4px;
+    border-radius: 5rem;
+    width: 50px;
+    background-color: var(--clr-text);
+    -webkit-transform: unset;
+            transform: unset;
+    opacity: unset;
+  }
+  nav > .hamburger.open:hover .line.middle,
+  nav > .hamburger:not(.open) .line.middle {
     -webkit-transform: translateX(-5px);
             transform: translateX(-5px);
   }
-  nav > .hamburger .line:not(:last-child) {
+  nav > .hamburger.open:hover .line:not(:last-child),
+  nav > .hamburger:not(.open) .line:not(:last-child) {
     margin-bottom: 10px;
   }
   nav > .hamburger::after {
@@ -163,6 +182,56 @@ nav ul li img {
     font-weight: 700;
   }
   nav ul {
+    position: absolute;
+    width: 0px;
+    height: 0;
+    -webkit-transition: width,height 1s;
+    transition: width,height 1s;
+    overflow: hidden;
+  }
+  nav ul li a.logo {
+    display: none;
+  }
+  nav .open ~ ul {
+    z-index: -1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    top: calc(var(--navbar-height) + 20px);
+    right: -10%;
+    height: 200vh;
+    width: 250vw;
+    background-color: var(--clr-menu);
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-line-pack: left;
+        align-content: left;
+    -webkit-transform: skew(0deg, -75deg) translateZ(-10px);
+            transform: skew(0deg, -75deg) translateZ(-10px);
+  }
+  nav .open ~ ul > .navcontent {
+    -webkit-transform: skew(0deg, 75deg) translate(130%, 20%);
+            transform: skew(0deg, 75deg) translate(130%, 20%);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: calc(100vh - var(--navbar-height) - 20px);
+    opacity: 1;
+  }
+  nav .open ~ ul > .navcontent .menu {
+    display: block;
+  }
+  nav .open ~ ul > .navcontent a {
+    color: var(--clr-white);
+    font-size: 2rem;
+  }
+  nav .open ~ ul > .navcontent a::after {
     display: none;
   }
 }
