@@ -9,6 +9,14 @@ $disabled = ($state) ? "disabled" : "" ;
 
 echo "  <link rel='stylesheet' href='$dir/assets/styles/nav/style.css'>
         <nav>
+            <a href='$dir/' class='logo'>
+                <img src='$dir/assets/img/logo.jpg' alt='Logo Kebab Van Erhan'>
+            </a>
+            <div class='hamburger'>
+                <div class='line top'></div>
+                <div class='line middle'></div>
+                <div class='line bottom'></div>
+            </div>
             <ul>
                 <li>
                     <a href='$dir/' class='".checkActive()."$disabled'>Home</a>
@@ -30,10 +38,9 @@ echo "  <link rel='stylesheet' href='$dir/assets/styles/nav/style.css'>
                 <li>
                     <a href='$dir/contact' class='".checkActive('contact')."$disabled'>Contact</a>
                 </li>";
-                if(isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
+                if(isset($_SESSION['admin']) && $_SESSION['admin'] === true) 
                     echo "<li class='admin'>
                             <a href='$dir/admin' class'".checkActive('admin')."$disabled'>Admin</a>
                         </li>";
-                }
-        echo "</ul>
+echo         "</ul>
         </nav>";

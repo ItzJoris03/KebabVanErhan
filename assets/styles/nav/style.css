@@ -12,6 +12,11 @@ nav {
   background-color: var(--clr-white);
 }
 
+nav > .logo,
+nav > .hamburger {
+  display: none;
+}
+
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,5 +88,82 @@ nav ul li a.disabled::after {
 
 nav ul li img {
   height: var(--navbar-height);
+}
+
+@media only screen and (max-width: 640px) {
+  nav {
+    padding: 10px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav > .logo {
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: var(--navbar-height);
+  }
+  nav > .logo img {
+    height: var(--navbar-height);
+  }
+  nav > .hamburger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav > .hamburger > * {
+    -webkit-transition: all .8s;
+    transition: all .8s;
+  }
+  nav > .hamburger:hover {
+    cursor: pointer;
+  }
+  nav > .hamburger:hover .line.top {
+    -webkit-transform: translateY(15px) rotate(45deg);
+            transform: translateY(15px) rotate(45deg);
+  }
+  nav > .hamburger:hover .line.bottom {
+    -webkit-transform: translateY(-15px) rotate(-45deg);
+            transform: translateY(-15px) rotate(-45deg);
+  }
+  nav > .hamburger:hover .line.middle {
+    width: 0px;
+    opacity: 0;
+  }
+  nav > .hamburger .line {
+    height: 4px;
+    border-radius: 5rem;
+    width: 50px;
+    background-color: var(--clr-text);
+  }
+  nav > .hamburger .line.middle {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  nav > .hamburger .line:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  nav > .hamburger::after {
+    content: 'menu';
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  nav ul {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

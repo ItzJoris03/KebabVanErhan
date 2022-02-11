@@ -7,6 +7,11 @@ class db extends PDO {
     private $db = 'kebab_van_erhan';
     private $pdo;
 
+    // private $host = "rdbms.strato.de";
+    // private $user = "dbu208998";
+    // private $pwd = "cbdf44Zr79UTJ8t";
+    // private $db = "dbs4966586";
+
     function __construct() {
         $this->createConnection();
     }
