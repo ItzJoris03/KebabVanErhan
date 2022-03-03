@@ -11,12 +11,19 @@ body nav {
   -webkit-transform: translateX(-10%);
           transform: translateX(-10%);
   max-height: 85vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow-y: hidden;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .header img {
   width: 100%;
-  position: relative;
 }
 
 .header .img__overlay {
@@ -24,7 +31,7 @@ body nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 98%;
   background: -webkit-gradient(linear, left top, right top, from(#181818c0), to(#18181800));
   background: linear-gradient(to right, #181818c0, #18181800);
   display: -webkit-box;
@@ -109,5 +116,163 @@ body nav {
   font-size: 2rem;
   font-family: 'Shadows into', Arial, Helvetica, sans-serif;
   color: var(--clr-gold);
+}
+
+.locations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.locations img {
+  max-height: 500px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 1rem;
+  z-index: 9;
+}
+
+.locations .content {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 5%;
+  border-right: 3px solid var(--clr-text);
+  z-index: 9;
+}
+
+.locations .content p.location {
+  color: var(--clr-text-red);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.locations .content p.time {
+  font-style: italic;
+  font-size: .9rem;
+}
+
+.locations .content p.time:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.locations .bg-text {
+  position: absolute;
+  font-size: 17rem;
+  z-index: 0;
+  color: var(--clr-bg);
+  -webkit-transform: rotate(-5deg) translateY(-20%);
+          transform: rotate(-5deg) translateY(-20%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .contact {
+  margin: 150px 0 50px 0;
+}
+
+@media only screen and (max-width: 360px) {
+  .header,
+  .home,
+  .locations {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  .header {
+    overflow: hidden;
+  }
+  .header img {
+    width: 150%;
+  }
+  .header .img__overlay {
+    padding: 8% 10vw 0 10vw;
+    max-width: 100vw;
+    height: 95%;
+    background: #181818c0;
+  }
+  .header .img__overlay h1 {
+    font-size: 1.3rem;
+  }
+  .header .img__overlay h2 {
+    font-size: 1.6rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .header .img__overlay h3 {
+    font-size: 1rem;
+  }
+  .home {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-top: 30px;
+  }
+  .home .content {
+    max-width: 90%;
+  }
+  .locations {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 100px;
+  }
+  .locations .content {
+    margin: 0 auto;
+    border: none;
+  }
+  .locations .bg-text {
+    position: relative;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    text-align: center;
+    -webkit-user-select: unset;
+       -moz-user-select: unset;
+        -ms-user-select: unset;
+            user-select: unset;
+    -webkit-transform: unset;
+            transform: unset;
+    color: var(--clr-gold);
+    font-family: "Shadows into", Arial, Helvetica, sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .locations img {
+    display: none;
+  }
+  .contact .content form {
+    width: 90% !important;
+  }
+  .contact img {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

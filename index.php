@@ -99,10 +99,12 @@ $m->setState(true);
                     case 'login':
                         include "$dir/views/pages/login.php";
                         break;
+                    case 'contact':
+                        include "$dir/views/pages/contact.php";
+                        break;
                     case 'information':
                     case 'admin':
                     case 'photos':
-                    case 'contact':
                     default:
                     include "$dir/views/pages/maintenance.php";
                         break;

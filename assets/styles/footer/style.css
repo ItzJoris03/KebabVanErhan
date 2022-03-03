@@ -4,7 +4,6 @@ footer {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  max-height: 309px;
   background-color: var(--clr-white);
 }
 
@@ -206,6 +205,9 @@ footer .footer_container .copyright a.login img {
   }
   footer .copyright p {
     font-size: .6rem !important;
+  }
+  footer .copyright {
+    padding: 5px 0 !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

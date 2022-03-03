@@ -57,7 +57,7 @@
 
 .maintenance .left .progress-bar .progress {
   height: 100%;
-  width: 20%;
+  width: 36%;
   background-color: var(--clr-gold);
 }
 

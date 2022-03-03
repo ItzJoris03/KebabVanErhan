@@ -6,11 +6,6 @@ class db extends PDO {
     private static $user = 'root';
     private static $db = 'kebab_van_erhan';
 
-    // private static $host = "rdbms.strato.de";
-    // private static $user = "dbu208998";
-    // private static $pwd = "cbdf44Zr79UTJ8t";
-    // private static $db = "dbs4966586";
-
     function __construct() {
         $this->createConnection();
     }
@@ -33,7 +28,7 @@ class db extends PDO {
                                   FROM location
                                   WHERE Day = ?";
 
-        return $this->stmtExecute($sql, $day);
+        return $this->getData($sql, null, $day);
 
         // $stmt->bindValue(':parameter', 'value');
         // $stmt->execute();
@@ -45,14 +40,14 @@ class db extends PDO {
                 FROM account
                 WHERE Mail = ?";
 
-        return $this->stmtExecute($sql, $email);
+        return $this->getData($sql, null, $email);
     }
 
     public function getMenuTypes() : array | false {
         $sql = "SELECT Id, Type
                 FROM type";
         
-        return $this->stmtExecute($sql);
+        return $this->getData($sql);
     }
 
     public function getMenu(int $TypeId) : array | false {
@@ -60,18 +55,20 @@ class db extends PDO {
                 FROM menu
                 WHERE TypeId = ?";
 
-        return $this->stmtExecute($sql, $TypeId);
+        return $this->getData($sql, null, $TypeId);
     }
 
     // array[row][column => value]
-    private function stmtExecute(string $sql, mixed ...$bind) : array | false {
-        $stmt = $this->prepare($sql);
-        if($stmt) {
+    private function getData(string $sql, ?int $exceptionCode = NULL, mixed ...$bind) : array | false {
+        try {
+            $stmt = $this->prepare($sql);
+            $bind = ($bind == array(NULL)) ? NULL : $bind;
             $stmt->execute($bind);
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
             return $results;
-        } else {
+        } catch (PDOException $e) {
+            // $this->throwException($e, $exceptionCode, $sql);
             return false;
         }
     }

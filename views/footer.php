@@ -73,7 +73,7 @@ if($locations) {
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2022 &middot; Kebab van Erhan | Designed by <a href="https://www.joriswebdev.com/">Joris Hummel</a></p>
+            <p>&copy; <?=date('Y')?> &middot; Kebab van Erhan | Designed by <a href="https://www.joriswebdev.com/">Joris Hummel</a></p>
             <a href="<?=$dir?>/login" class="login">
                 <img src="<?=$dir?>/assets/img/login.png" alt="Login">
             </a>
