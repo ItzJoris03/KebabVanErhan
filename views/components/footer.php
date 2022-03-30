@@ -15,10 +15,20 @@ if($locations) {
 
     $TimeStart = substr($TimeStart, 0, 2) .'.'. substr($TimeStart, 3, 2);
     $TimeEnd = substr($TimeEnd, 0, 2) .'.'. substr($TimeEnd, 3, 2);
+
+    $day = $TodaysDay;
 } else {
     $open = false;
     $tomorrow = date('l', strtotime('tomorrow'));
+    $aDayAfter = date('l', strtotime('tomorrow + 1 day'));
     $locations = $db->getLocations($tomorrow);
+
+    $day = $tomorrow;
+
+    if(empty($locations)) {
+        $locations = $db->getLocations($aDayAfter);
+        $day = $aDayAfter;
+    }
 
     $TimeStart = $locations[0]['TimeStart'];
     $TimeEnd = $locations[0]['TimeEnd'];
@@ -44,7 +54,7 @@ if($locations) {
                             </div>
                             <div class='bottom'>
                                 <p class='location'>$place, $name</p>
-                                <p class='time'>$TodaysDay - $TimeStart - $TimeEnd uur</p>
+                                <p class='time'>$day - $TimeStart - $TimeEnd uur</p>
                             </div>";
                 } else {
                     echo "<div class='top'>
@@ -53,12 +63,12 @@ if($locations) {
                         <div class='bottom'>
                             <p>Eerst volgende locatie:</p>
                             <p class='location'>$place, $name</p>
-                            <p class='time'>$TodaysDay - $TimeStart - $TimeEnd uur</p>
+                            <p class='time'>$day - $TimeStart - $TimeEnd uur</p>
                         </div>";
                 }
                 ?>
             </div>
-            <?php include "$dir/views/navbar.php"; ?>
+            <?php include "$dir/views/components/navbar.php"; ?>
             <div class="contact">
                 <a href="mailto:kocdonerkebab@gmail.com" class="mail">kocdonerkebab@gmail.com</a>
                 <a href="tel:+31640818332" class="phone">06 40818332</p>

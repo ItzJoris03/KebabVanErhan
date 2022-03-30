@@ -46,7 +46,7 @@ body nav {
 
 .header .img__overlay h1 {
   color: var(--clr-gold);
-  font-family: "Shadows into", Arial, Helvetica, sans-serif;
+  font-family: 'Shadows Into Light', cursive;
   font-size: 1.6rem;
   font-weight: 100;
 }
@@ -122,10 +122,9 @@ body nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 15%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   position: relative;
 }
 
@@ -190,18 +189,92 @@ main .contact {
   margin: 150px 0 50px 0;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 900px) {
+  .locations .content {
+    border-right: unset;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .locations {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 30px;
+  }
+  .locations .bg-text {
+    position: relative;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    text-align: center;
+    -webkit-user-select: unset;
+       -moz-user-select: unset;
+        -ms-user-select: unset;
+            user-select: unset;
+    -webkit-transform: unset;
+            transform: unset;
+    color: var(--clr-gold);
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    -webkit-transform: unset;
+            transform: unset;
+  }
+  .header .img__overlay h1 {
+    font-size: 1.2rem;
+  }
+  .header .img__overlay h2 {
+    font-size: 1.6rem;
+  }
+  .header .img__overlay h3 {
+    font-size: .6rem;
+  }
+}
+
+@media only screen and (max-width: 640px) {
   .header,
   .home,
   .locations {
     -webkit-transform: translateY(100px);
             transform: translateY(100px);
   }
+  .header .img__overlay {
+    display: none;
+  }
+  .home {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .home img {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-top: 30px;
+  }
+  .home .content {
+    max-width: 90%;
+  }
+  .locations {
+    padding-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
   .header {
     overflow: hidden;
-  }
-  .header img {
-    width: 150%;
   }
   .header .img__overlay {
     padding: 8% 10vw 0 10vw;
@@ -221,57 +294,7 @@ main .contact {
   .header .img__overlay h3 {
     font-size: 1rem;
   }
-  .home {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .home img {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    margin-top: 30px;
-  }
-  .home .content {
-    max-width: 90%;
-  }
-  .locations {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    padding-top: 100px;
-  }
-  .locations .content {
-    margin: 0 auto;
-    border: none;
-  }
-  .locations .bg-text {
-    position: relative;
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
-    text-align: center;
-    -webkit-user-select: unset;
-       -moz-user-select: unset;
-        -ms-user-select: unset;
-            user-select: unset;
-    -webkit-transform: unset;
-            transform: unset;
-    color: var(--clr-gold);
-    font-family: "Shadows into", Arial, Helvetica, sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
   .locations img {
-    display: none;
-  }
-  .contact .content form {
-    width: 90% !important;
-  }
-  .contact img {
     display: none;
   }
 }

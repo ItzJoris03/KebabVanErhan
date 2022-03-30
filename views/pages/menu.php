@@ -11,7 +11,6 @@ foreach($types as $index => $array) {
     $type = $array['Type'];
     echo "<table class='type'><tr>";
     echo "<th>$type</th>";
-    // debug($menu);
     if(is_null($menu[0]["PriceRegular"])) {
         echo "<th>KALF</th>";
         echo "<th>KIP</th>";
@@ -24,8 +23,14 @@ foreach($types as $index => $array) {
         foreach($filteredArray as $type) {
             if(substr_count($type, '.')) {
                 $type = "€$type";
-                if(substr($type, strpos($type, '.')) == "00") {
+                if(substr($type, strpos($type, '.')) == ".00") {
                     $type = substr_replace($type, '-', strpos($type, '.') + 1);
+                } else if(substr($type, strpos($type, '.')) == ".5") {
+                    $type = "{$type}0";
+                }
+            } else if(is_float($type)) {
+                if(!substr_count($type, '.')) {
+                    $type = "€$type.-";
                 }
             }
             echo "<td>$type</td>";

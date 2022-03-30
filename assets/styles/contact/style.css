@@ -4,7 +4,7 @@
 
 .contact h2 {
   font-size: 2rem;
-  font-family: 'Shadows into', Arial, Helvetica, sans-serif;
+  font-family: 'Shadows Into Light', cursive;
   color: var(--clr-gold);
   text-align: center;
 }
@@ -17,6 +17,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 5%;
 }
 
@@ -63,6 +66,8 @@
   font-weight: 700;
   font-size: 1rem;
   border: 5px solid transparent;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
 }
 
 .contact .content form input[type='submit']:hover {
@@ -77,7 +82,29 @@
 }
 
 .contact .content img {
-  width: 40%;
+  width: 500px;
   border-radius: 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 50px;
+  }
+  .contact .content form {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contact .content form {
+    width: 90%;
+  }
+  .contact .content img {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

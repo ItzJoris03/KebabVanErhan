@@ -49,7 +49,7 @@ $m->setState(true);
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
 
     <link rel="stylesheet" href="<?=$dir?>/assets/styles/main.css">
 </head>
@@ -57,7 +57,7 @@ $m->setState(true);
 
     <?php
         // if($_POST['page'] != 'login')
-            include "$dir/views/navbar.php";
+            include "$dir/views/components/navbar.php";
     ?>
     <main>
         <div class="side_pattern rotated"></div>
@@ -103,6 +103,8 @@ $m->setState(true);
                         include "$dir/views/pages/contact.php";
                         break;
                     case 'information':
+                        include "$dir/views/pages/information.php";
+                        break;
                     case 'admin':
                     case 'photos':
                     default:
@@ -116,7 +118,7 @@ $m->setState(true);
     </main>
     <?php
         if($_POST['page'] != 'login')
-            include "$dir/views/footer.php";
+            include "$dir/views/components/footer.php";
     ?>
     <script src="<?=$dir?>/assets/js/extra.js"></script>
 </body>

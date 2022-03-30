@@ -6,6 +6,11 @@ class db extends PDO {
     private static $user = 'root';
     private static $db = 'kebab_van_erhan';
 
+    //private static $host = "rdbms.strato.de";
+    //private static $user = "dbu208998";
+    //private static $pwd = "cbdf44Zr79UTJ8t";
+    //private static $db = "dbs4966586";
+
     function __construct() {
         $this->createConnection();
     }

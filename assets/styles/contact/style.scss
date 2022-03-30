@@ -2,7 +2,7 @@
     padding: 20px 0;
     h2 {
         font-size: 2rem;
-        font-family: 'Shadows into', Arial, Helvetica, sans-serif;
+        font-family: 'Shadows Into Light', cursive;
         color: var(--clr-gold);
         text-align: center;
     }
@@ -10,6 +10,7 @@
         padding: 20px 0;
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 5%;
         form {
             display: flex;
@@ -38,6 +39,7 @@
                 font-weight: 700;
                 font-size: 1rem;
                 border: 5px solid transparent;
+                transition: background-color .2s ease-in-out;
 
                 &:hover {
                     background-color: transparent;
@@ -51,8 +53,34 @@
             }
         }
         img {
-            width: 40%;
+            width: 500px;
             border-radius: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .contact {
+        .content {
+            flex-direction: column;
+            gap: 50px;
+
+            form {
+                width: 500px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .contact {
+        .content {
+            form {
+                width: 90%;
+            }
+            img {
+                display: none;
+            }
         }
     }
 }
