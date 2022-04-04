@@ -1,15 +1,13 @@
 <?php 
 
-class db extends PDO {
-    private static $host = 'localhost';
-    private static $pwd = '';
-    private static $user = 'root';
-    private static $db = 'kebab_van_erhan';
+require_once(__DIR__."/env.php");
 
-    //private static $host = "rdbms.strato.de";
-    //private static $user = "dbu208998";
-    //private static $pwd = "cbdf44Zr79UTJ8t";
-    //private static $db = "dbs4966586";
+
+class db extends PDO {
+    private static $host = HOST;
+    private static $pwd = PASSWORD;
+    private static $user = USER;
+    private static $db = DATABASE;
 
     function __construct() {
         $this->createConnection();
@@ -46,6 +44,13 @@ class db extends PDO {
                 WHERE Mail = ?";
 
         return $this->getData($sql, null, $email);
+    }
+
+    public function getAccountInfo() : array | false {
+        $sql = "SELECT *
+                FROM account";
+
+        return $this->getData($sql);
     }
 
     public function getMenuTypes() : array | false {
