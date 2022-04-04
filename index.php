@@ -1,5 +1,5 @@
 <?php 
-//include './utils/secure_conn.php'; '
+//include './utils/secure_conn.php';
 session_start();
 
 if(!isset($_POST['page'])) {
@@ -15,6 +15,7 @@ if(isset($_GET['Logout'])) {
 require_once "$dir/utils/maintenance.php";
 include "$dir/utils/debug/debug.php";
 include "$dir/utils/db_management.php";
+include "$dir/utils/errorhandling.php";
 
 $db = new db;
 
