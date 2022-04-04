@@ -83,3 +83,6 @@ INSERT INTO `location` (Day, Place, Name, TimeStart, TimeEnd) VALUES
     ('Thursday', 'Enter', 'Dorpsplein', '11:00:00', '18:00:00'),
     ('Friday', 'Goor', 'Weversplein', '11:00:00', '19:00:00'),
     ('Saturday', 'Almelo', 'Marktplein', '09:00:00', '17:00:00');
+
+INSERT INTO `account` (User, FullName, Mail, Password) VALUES
+    ('Admin', 'Admin', 'admin@kve.com', '$2y$10$zveTIvTCTQItiKikOq2xCuLwK5NgzvMlQRAweBwtAegAtkeKsiJ3.');
