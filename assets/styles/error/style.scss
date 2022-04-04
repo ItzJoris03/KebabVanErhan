@@ -1,0 +1,55 @@
+@import url(../variables.css);
+
+.errorHandling {
+    background-color: var(--clr-warning);
+    width: clamp(250px, 30vw, 80vw);
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    border-radius: 1rem;
+    padding: 20px 50px;
+
+    .removeErrors {
+        position: relative;
+        width: calc(100% + 60px);
+        transform: translateX(-30px);
+        height: 5px;
+        .line {
+            height: 5px;
+            border-radius: 5rem;
+            width: 30px;
+            background-color: var(--clr-text);
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: background-color .8s ease;
+
+            &:first-child {
+                transform: rotate(45deg);
+            }
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            .line {
+                background-color: var(--clr-white);
+            }
+        }
+    }
+
+    .errorMessage {        
+        p {
+            color: var(--clr-text);
+            width: fit-content;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+    }
+}

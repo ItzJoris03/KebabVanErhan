@@ -1,0 +1,63 @@
+@import url(../variables.css);
+.errorHandling {
+  background-color: var(--clr-warning);
+  width: clamp(250px, 30vw, 80vw);
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 999;
+  border-radius: 1rem;
+  padding: 20px 50px;
+}
+
+.errorHandling .removeErrors {
+  position: relative;
+  width: calc(100% + 60px);
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
+  height: 5px;
+}
+
+.errorHandling .removeErrors .line {
+  height: 5px;
+  border-radius: 5rem;
+  width: 30px;
+  background-color: var(--clr-text);
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: background-color .8s ease;
+  transition: background-color .8s ease;
+}
+
+.errorHandling .removeErrors .line:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.errorHandling .removeErrors .line:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.errorHandling .removeErrors:hover {
+  cursor: pointer;
+}
+
+.errorHandling .removeErrors:hover .line {
+  background-color: var(--clr-white);
+}
+
+.errorHandling .errorMessage p {
+  color: var(--clr-text);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.errorHandling .errorMessage .bold {
+  font-weight: 700;
+}
+/*# sourceMappingURL=style.css.map */
